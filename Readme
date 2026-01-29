@@ -1,0 +1,100 @@
+# Spatial–Temporal Hypergraph Enhanced Meta-Learning for Eye Movement Classification
+
+This repository contains the implementation of a **few-shot, semi-supervised eye movement classification framework** using **spatial–temporal hypergraph learning combined with meta-learning**.  
+The model is designed to achieve **robust cross-subject generalization** under limited labeled data conditions.
+
+---
+
+## 🔍 Overview
+
+Eye movement recognition using EMG/EOG signals is critical for:
+- Human–Computer Interaction (HCI)
+- Assistive technologies
+- Neurophysiological assessment
+
+Traditional deep learning approaches require large labeled datasets and fail under inter-subject variability.  
+To overcome this, we propose a **CNN + Hypergraph + Meta-Learning** framework with **pseudo-labeling**.
+
+---
+
+## ✨ Key Contributions
+
+- ✅ Spatial–temporal **hypergraph modeling** to capture higher-order dependencies
+- ✅ **Few-shot meta-learning** for rapid subject adaptation
+- ✅ **Semi-supervised pseudo-labeling** to reduce annotation dependency
+- ✅ Structural regularization using **hypergraph consistency losses**
+- ✅ Evaluated under **Leave-One-Subject-Out (LOSO)** protocol
+
+---
+
+## 🧩 Graph vs Hypergraph Representation
+
+<img src="figures/graph_vs_hypergraph.png" width="700"/>
+
+**Why Hypergraph?**  
+Unlike conventional graphs (pairwise edges), hypergraphs allow **one hyperedge to connect multiple nodes**, enabling modeling of group-wise temporal dependencies in EMG/EOG signals.
+
+---
+
+## 🏗️ Proposed Architecture
+
+<img src="figures/architecture.png" width="800"/>
+
+### Pipeline:
+1. CNN-based temporal feature extraction
+2. Spatial–temporal hypergraph construction
+3. Hyperedge message passing
+4. Meta-learning (Support & Query sets)
+5. Pseudo-labeling for unlabeled samples
+
+---
+
+## 🧪 Dataset & Classes
+
+- **Signal Type:** Two-channel EMG/EOG
+- **Evaluation:** LOSO cross-validation
+- **Classes (6):**
+  - CN – Center
+  - MD – Move Down
+  - ML – Move Left
+  - MP – Move Right
+  - MR – Move Right
+  - MU – Move Up
+
+---
+
+## 📊 Experimental Results
+
+### 🔹 ROC Curves (One-vs-Rest)
+
+<img src="figures/roc_curve.png" width="700"/>
+
+| Class | AUC |
+|-----|-----|
+| CN | 0.97 |
+| MD | 0.99 |
+| ML | 0.98 |
+| MP | 0.99 |
+| MR | 0.99 |
+| MU | 1.00 |
+
+---
+
+### 🔹 Global Confusion Matrix
+
+<img src="figures/confusion_matrix.png" width="600"/>
+
+---
+
+### 🔹 Classification Report
+
+```text
+Accuracy: 96%
+
+Class   Precision  Recall  F1-score
+CN      1.00       0.86    0.92
+MD      0.94       1.00    0.97
+ML      0.98       0.96    0.97
+MP      0.98       1.00    0.99
+MR      0.98       0.96    0.97
+MU      0.91       1.00    0.95

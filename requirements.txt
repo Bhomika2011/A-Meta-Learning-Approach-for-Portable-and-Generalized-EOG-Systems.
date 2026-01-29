@@ -1,0 +1,28 @@
+# Core
+python>=3.8
+
+# Numerical & Scientific Computing
+numpy>=1.21
+scipy>=1.7
+pandas>=1.3
+
+# Machine Learning & Deep Learning
+torch>=1.10
+torchvision>=0.11
+scikit-learn>=1.0
+
+# Signal Processing
+mne>=1.2
+
+# Graph & Hypergraph Utilities
+networkx>=2.6
+
+# Visualization
+matplotlib>=3.5
+seaborn>=0.11
+
+# Progress & Utilities
+tqdm>=4.64
+
+# Reproducibility
+pyyaml>=6.0
